@@ -11,25 +11,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Tajawal:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --void:#0A0C10;
-    --void-2:#12151B;
-    --panel:#171B22;
-    --line:#262B34;
-    --paper:#F5F1E8;
-    --dim:#8D95A3;
-    --ember:#FF4B3E;
-    --ember-dim:#3A1712;
-    --brass:#E8B04B;
-    --brass-dim:#332708;
-    --emerald:#34C08A;
-    --emerald-dim:#0E2C22;
+    --void:#06140F;
+    --void-2:#0B211A;
+    --panel:#0F291F;
+    --line:#1F3D2E;
+    --paper:#F3EEDF;
+    --dim:#7FA08D;
+    --gold:#C9A24A;
+    --gold-bright:#E7C878;
+    --gold-dim:#2A2109;
+    --ember:#B5502F;
   }
   *{box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent;}
   html,body{ height:100%; }
   body{
     background:
-      radial-gradient(900px 500px at 15% -10%, rgba(255,75,62,.10), transparent 60%),
-      radial-gradient(700px 400px at 100% 0%, rgba(232,176,75,.08), transparent 55%),
+      radial-gradient(1000px 550px at 20% -10%, rgba(201,162,74,.08), transparent 60%),
+      radial-gradient(800px 500px at 100% 10%, rgba(201,162,74,.05), transparent 55%),
       var(--void);
     font-family:'Tajawal', sans-serif;
     color:var(--paper);
@@ -41,111 +39,111 @@
 
   .topbar{
     display:flex; justify-content:space-between; align-items:center;
-    padding:16px 18px 6px;
+    padding:18px 20px 12px;
   }
-  .brand{ display:flex; align-items:baseline; gap:6px; }
-  .brand .name{ font-family:'Cairo',sans-serif; font-weight:900; font-size:21px; letter-spacing:.2px; }
-  .brand .dot{ color:var(--ember); }
+  .brand{ display:flex; align-items:baseline; gap:7px; }
+  .brand .name{ font-family:'Cairo',sans-serif; font-weight:900; font-size:22px; letter-spacing:.3px; color:var(--paper); }
+  .brand .dot{ color:var(--gold); }
   .liveping{
     display:flex; align-items:center; gap:6px;
     font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--dim);
   }
   .liveping i{
-    width:7px; height:7px; border-radius:50%; background:var(--emerald);
-    box-shadow:0 0 0 0 rgba(52,192,138,.6);
-    animation:livepulse 2s infinite;
+    width:6px; height:6px; border-radius:50%; background:var(--gold-bright);
+    box-shadow:0 0 0 0 rgba(231,200,120,.6);
+    animation:livepulse 2.2s infinite;
   }
   .liveping.offline i{ background:var(--ember); animation:none; }
   @keyframes livepulse{
-    0%{ box-shadow:0 0 0 0 rgba(52,192,138,.55); }
-    70%{ box-shadow:0 0 0 8px rgba(52,192,138,0); }
-    100%{ box-shadow:0 0 0 0 rgba(52,192,138,0); }
+    0%{ box-shadow:0 0 0 0 rgba(231,200,120,.5); }
+    70%{ box-shadow:0 0 0 8px rgba(231,200,120,0); }
+    100%{ box-shadow:0 0 0 0 rgba(231,200,120,0); }
+  }
+
+  .sadu{
+    height:10px; margin:0 20px 4px;
+    background-image:
+      linear-gradient(135deg, var(--gold) 25%, transparent 25%),
+      linear-gradient(225deg, var(--gold) 25%, transparent 25%);
+    background-size:14px 10px;
+    background-position:0 0, 0 0;
+    opacity:.55;
   }
 
   .hero{
     position:relative;
-    margin:14px 16px 6px;
-    padding:20px 18px 18px;
-    border-radius:20px;
+    margin:16px 16px 8px;
+    padding:22px 20px 20px;
+    border-radius:6px;
     overflow:hidden;
-    background:linear-gradient(155deg, var(--ember-dim), var(--void-2) 65%);
-    border:1px solid rgba(255,75,62,.25);
+    background:linear-gradient(160deg, var(--panel), var(--void-2) 70%);
+    border:1px solid rgba(201,162,74,.3);
     display:none;
   }
   .hero.show{ display:block; }
-  .hero-rings{
-    position:absolute; top:18px; inset-inline-end:18px; width:34px; height:34px;
-  }
+  .hero-rings{ position:absolute; top:20px; inset-inline-end:20px; width:32px; height:32px; }
   .hero-rings span{
-    position:absolute; inset:0; border-radius:50%; border:1.5px solid var(--ember);
-    animation:ringout 2.4s ease-out infinite;
-    opacity:0;
+    position:absolute; inset:0; border-radius:50%; border:1.5px solid var(--gold);
+    animation:ringout 2.6s ease-out infinite; opacity:0;
   }
-  .hero-rings span:nth-child(2){ animation-delay:.8s; }
-  .hero-rings span:nth-child(3){ animation-delay:1.6s; }
-  @keyframes ringout{
-    0%{ transform:scale(.3); opacity:.9; }
-    100%{ transform:scale(1.6); opacity:0; }
-  }
-  .hero-rings::after{
-    content:''; position:absolute; inset:11px; border-radius:50%; background:var(--ember);
-  }
+  .hero-rings span:nth-child(2){ animation-delay:.9s; }
+  .hero-rings span:nth-child(3){ animation-delay:1.8s; }
+  @keyframes ringout{ 0%{ transform:scale(.3); opacity:.85; } 100%{ transform:scale(1.6); opacity:0; } }
+  .hero-rings::after{ content:''; position:absolute; inset:11px; border-radius:50%; background:var(--gold); }
   .hero-eyebrow{
     font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
-    color:var(--ember); letter-spacing:1px; margin-bottom:10px;
+    color:var(--gold-bright); letter-spacing:1.5px; margin-bottom:12px;
   }
   .hero-headline{
-    font-family:'Cairo',sans-serif; font-weight:800; font-size:21px; line-height:1.45;
-    margin-bottom:10px; max-width:88%;
+    font-family:'Cairo',sans-serif; font-weight:800; font-size:21px; line-height:1.5;
+    margin-bottom:10px; max-width:87%; color:var(--paper);
   }
-  .hero-snippet{ font-size:13.5px; color:var(--dim); line-height:1.7; margin-bottom:14px; max-width:92%; }
-  .hero-bottom{ display:flex; justify-content:space-between; align-items:center; }
+  .hero-snippet{ font-size:13.5px; color:var(--dim); line-height:1.75; margin-bottom:16px; max-width:92%; }
+  .hero-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:12px; border-top:1px solid rgba(201,162,74,.2); }
   .hero-source{ font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--dim); }
-  .hero-link{ font-size:12.5px; font-weight:700; color:var(--ember); text-decoration:none; }
+  .hero-link{ font-size:12.5px; font-weight:700; color:var(--gold-bright); text-decoration:none; }
 
   .ticker{
-    margin:16px 16px 4px; padding:9px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    margin:14px 16px 4px; padding:10px 0;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
     overflow:hidden; white-space:nowrap;
   }
   .ticker span{
     font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--dim);
     display:inline-block; padding-inline-end:50px;
-    animation:tickmove 28s linear infinite;
+    animation:tickmove 30s linear infinite;
   }
   @keyframes tickmove{ 0%{ transform:translateX(100%);} 100%{ transform:translateX(-100%);} }
 
   .rail{ display:flex; gap:8px; padding:16px 16px 6px; overflow-x:auto; }
   .rail::-webkit-scrollbar{ display:none; }
   .pill{
-    font-size:13px; font-weight:700; padding:8px 16px; border-radius:10px;
+    font-size:13px; font-weight:700; padding:8px 16px; border-radius:3px;
     white-space:nowrap; border:1px solid var(--line); color:var(--dim);
     font-family:'Tajawal',sans-serif;
   }
-  .pill.active{ background:var(--paper); color:var(--void); border-color:var(--paper); }
+  .pill.active{ background:var(--gold); color:var(--void); border-color:var(--gold); }
 
   .feed{ padding:8px 16px 0; }
-  .row{
-    display:flex; gap:12px; align-items:flex-start;
-    padding:16px 0; border-bottom:1px solid var(--line);
-  }
-  .row .bar{ width:3px; align-self:stretch; border-radius:3px; flex-shrink:0; margin-top:3px; }
+  .row{ display:flex; gap:12px; align-items:flex-start; padding:17px 0; border-bottom:1px solid var(--line); }
+  .row .bar{ width:2px; align-self:stretch; flex-shrink:0; margin-top:3px; }
   .row .bar.breaking{ background:var(--ember); }
-  .row .bar.mbs{ background:var(--brass); }
-  .row .bar.saudi{ background:var(--emerald); }
-  .row .bar.article{ background:var(--dim); }
+  .row .bar.mbs{ background:var(--gold); }
+  .row .bar.saudi{ background:var(--dim); }
+  .row .bar.article{ background:var(--line); }
   .row-body{ flex:1; min-width:0; }
-  .row-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; gap:8px; }
-  .label{ font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:.5px; }
+  .row-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:7px; gap:8px; }
+  .label{ font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:.6px; }
   .label.breaking{ color:var(--ember); }
-  .label.mbs{ color:var(--brass); }
-  .label.saudi{ color:var(--emerald); }
+  .label.mbs{ color:var(--gold-bright); }
+  .label.saudi{ color:var(--dim); }
   .label.article{ color:var(--dim); }
   .row-time{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--dim); flex-shrink:0; }
-  .row-headline{ font-family:'Cairo',sans-serif; font-weight:700; font-size:15.5px; line-height:1.55; margin-bottom:5px; }
-  .row-snippet{ font-size:12.5px; color:var(--dim); line-height:1.6; margin-bottom:8px; }
+  .row-headline{ font-family:'Cairo',sans-serif; font-weight:700; font-size:15.5px; line-height:1.6; margin-bottom:6px; color:var(--paper); }
+  .row-snippet{ font-size:12.5px; color:var(--dim); line-height:1.65; margin-bottom:9px; }
   .row-bottom{ display:flex; justify-content:space-between; align-items:center; }
   .row-source{ font-size:11.5px; color:var(--dim); }
-  .row-link{ font-size:11.5px; font-weight:700; color:var(--paper); text-decoration:none; opacity:.85; }
+  .row-link{ font-size:11.5px; font-weight:700; color:var(--gold-bright); text-decoration:none; }
 
   .empty{ text-align:center; color:var(--dim); padding:70px 20px; font-size:13.5px; font-family:'IBM Plex Mono',monospace; }
 </style>
@@ -156,6 +154,7 @@
     <div class="brand"><span class="name">BK<span class="dot">.</span>News</span></div>
     <div class="liveping" id="live"><i></i><span id="live-text">اتصال…</span></div>
   </div>
+  <div class="sadu"></div>
 
   <div class="hero" id="hero"></div>
 
@@ -204,3 +203,64 @@ function renderHero(){
 }
 
 function renderTicker(){
+  const items = all.slice(0,8).map(a=>a.headline);
+  document.getElementById('ticker-text').textContent = items.join('   •   ') || 'لا توجد مستجدات حاليًا';
+}
+
+function renderFeed(){
+  const feed = document.getElementById('feed');
+  const top = all.find(a => a.category === 'breaking');
+  const list = (activeCat ? all.filter(a=>a.category===activeCat) : all).filter(a => a !== top || activeCat === 'breaking');
+  if(list.length === 0){
+    feed.innerHTML = '<div class="empty">لا توجد أخبار بهذا التصنيف حاليًا</div>';
+    return;
+  }
+  feed.innerHTML = list.map(a => `
+    <div class="row">
+      <div class="bar ${a.category}"></div>
+      <div class="row-body">
+        <div class="row-top">
+          <span class="label ${a.category}">${label[a.category]||a.category}</span>
+          <span class="row-time">${timeAgo(a.publishedAt)}</span>
+        </div>
+        <div class="row-headline">${a.headline}</div>
+        <div class="row-snippet">${a.snippet||''}</div>
+        <div class="row-bottom">
+          <span class="row-source">${a.sourceName}</span>
+          <a class="row-link" href="${a.sourceURL}" target="_blank" rel="noopener">المصدر ←</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function fetchFeed(){
+  const live = document.getElementById('live');
+  const liveText = document.getElementById('live-text');
+  try{
+    const res = await fetch('/v1/feed', { cache:'no-store' });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    all = await res.json();
+    live.classList.remove('offline');
+    liveText.textContent = 'محدّث ' + new Date().toLocaleTimeString('ar-SA',{hour:'2-digit',minute:'2-digit'});
+    renderHero(); renderTicker(); renderFeed();
+  }catch(e){
+    live.classList.add('offline');
+    liveText.textContent = 'غير متصل';
+  }
+}
+
+document.getElementById('rail').addEventListener('click', e=>{
+  const p = e.target.closest('.pill');
+  if(!p) return;
+  document.querySelectorAll('.pill').forEach(x=>x.classList.remove('active'));
+  p.classList.add('active');
+  activeCat = p.dataset.cat;
+  renderFeed();
+});
+
+fetchFeed();
+setInterval(fetchFeed, 60000);
+</script>
+</body>
+</html>
