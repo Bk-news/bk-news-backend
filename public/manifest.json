@@ -1,0 +1,8 @@
+{
+  "name": "BK.News",
+  "short_name": "BK.News",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D1013",
+  "theme_color": "#0D1013"
+}
