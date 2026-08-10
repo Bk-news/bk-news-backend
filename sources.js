@@ -49,6 +49,10 @@ module.exports = [
     url: "https://api.axios.com/feed/" },
   { name: "Bloomberg (Politics)", local: false,
     url: "https://www.bloomberg.com/politics/feeds/site.xml" },
+  { name: "عاجل العربية (X)", local: false, forceCategory: "breaking",
+    url: "https://rss.app/feeds/YtXHgjnvC6ekZ1LH.xml" },
+  { name: "مالك الروقي (X)", local: false,
+    url: "https://rss.app/feeds/NGrwlACYjKxJdLbW.xml" },
 
   // ---- No public RSS found — add manually if you get a feed URL ----
   // "الشرق" / Asharq News (asharq.com) doesn't publish a public RSS feed as
