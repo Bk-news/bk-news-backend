@@ -10,6 +10,25 @@ const BREAKING_WORDS = [
 
 const ARTICLE_HINTS = ["opinion", "analysis", "comment", "رأي", "تحليل", "مقال"];
 
+const POLITICS_ECON_WORDS = [
+  "سياسة", "سياسي", "الحكومة", "الوزراء", "مجلس الوزراء", "دبلوماسي",
+  "اقتصاد", "اقتصادي", "النفط", "الميزانية", "الاستثمار", "سوق الأسهم",
+  "تجارة", "الناتج المحلي", "التضخم", "صندوق النقد", "أرامكو",
+  "politics", "political", "government", "minister", "cabinet", "diplomat",
+  "economy", "economic", "budget", "investment", "oil", "trade", "gdp",
+  "inflation", "stock market", "aramco", "finance", "central bank"
+];
+
+function isPoliticsOrEconomy(item) {
+  const text = textOf(item);
+  const categories = (item.categories || []).join(" ").toLowerCase();
+  const path = (item.link || "").toLowerCase();
+  return (
+    POLITICS_ECON_WORDS.some(w => text.includes(w) || categories.includes(w)) ||
+    path.includes("/politics/") || path.includes("/economy/") || path.includes("/business/")
+  );
+}
+
 function textOf(item) {
   return `${item.title || ""} ${item.contentSnippet || item.summary || ""}`.toLowerCase();
 }
@@ -36,4 +55,4 @@ function categorize(item) {
   return "saudi";
 }
 
-module.exports = { categorize };
+module.exports = { categorize, isPoliticsOrEconomy };
