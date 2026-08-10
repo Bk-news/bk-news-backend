@@ -1,7 +1,7 @@
 const Parser = require("rss-parser");
 const crypto = require("crypto");
 const sources = require("./sources");
-const { categorize } = require("./categorize");
+const { categorize, isPoliticsOrEconomy } = require("./categorize");
 
 const parser = new Parser({ timeout: 15000 });
 
@@ -32,7 +32,10 @@ async function fetchSource(source) {
         sourceName: source.name,
         sourceURL: item.link,
         publishedAt: item.isoDate || new Date().toISOString(),
-      }));
+        _raw: item,
+      }))
+      .filter(a => a.category === "breaking" || a.category === "mbs" || isPoliticsOrEconomy(a._raw))
+      .map(({ _raw, ...rest }) => rest);
   } catch (err) {
     console.warn(`[fetcher] skipped "${source.name}": ${err.message}`);
     return [];
