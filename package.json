@@ -1,0 +1,17 @@
+{
+  "name": "bk-news-backend",
+  "version": "1.0.0",
+  "description": "Backend for BK.News",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "rss-parser": "^3.13.0",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.4.5"
+  }
+}
